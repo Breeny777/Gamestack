@@ -3,7 +3,7 @@
     #running version 1.4
     7dtdserver:
       image: vinanrra/7dtd-server
-      container_name: 7dtdserver
+      container_name: PlayTime-7dtdserver
       environment:
         - START_MODE=1
         - VERSION=v1.4
@@ -34,7 +34,7 @@
   # Running latest version
     7dtdserver2:
       image: vinanrra/7dtd-server
-      container_name: 7dtdserver2
+      container_name: PlayTime-7dtdserver2
       environment:
         - START_MODE=1
         - VERSION=stable
@@ -64,7 +64,7 @@
           max-size: "1m"
     mumble-server:
       image: mumblevoip/mumble-server:latest
-      container_name: mumble-server
+      container_name: PlayTime-mumble-server
       hostname: mumble-server
       restart: on-failure
       ports:
@@ -73,7 +73,7 @@
 # Minecraft Servers
     minecraft-bedrock-server:
       image: itzg/minecraft-bedrock-server
-      container_name: mc
+      container_name: PlayTime-mc
       environment:
         - 'EULA=TRUE'
         - 'SERVER_PORT=19132'
@@ -91,7 +91,7 @@
 # Container access proxy - DO NOT REMOVE
     docker-socket-proxy:
       image: tecnativa/docker-socket-proxy
-      container_name: docker-socket-proxy
+      container_name: PlayTime-docker-socket-proxy
       ports:
         - "2375:2375"
       volumes:
