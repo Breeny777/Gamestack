@@ -88,3 +88,19 @@
         - '${ROOT}/config/bedrock:/data'
       stdin_open: true
       tty: true
+# Container access proxy - DO NOT REMOVE
+    docker-socket-proxy:
+        image: tecnativa/docker-socket-proxy
+        container_name: docker-socket-proxy
+        ports:
+          - "2375:2375"
+        volumes:
+          - /var/run/docker.sock:/var/run/docker.sock
+        environment:
+          - CONTAINERS=1
+          - POST=1
+          - DELETE=1
+          - SERVICES=1
+          - NETWORKS=1
+          - LOG_LEVEL=info
+        restart: unless-stopped
