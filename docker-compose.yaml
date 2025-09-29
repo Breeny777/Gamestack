@@ -4,8 +4,6 @@
     7dtdserver:
       image: vinanrra/7dtd-server
       container_name: 7dtdserver
-      labels:
-      - host=${HOST_ID}
       environment:
         - START_MODE=1
         - VERSION=v1.4
@@ -37,8 +35,6 @@
     7dtdserver2:
       image: vinanrra/7dtd-server
       container_name: 7dtdserver2
-      labels:
-      - host=${HOST_ID}
       environment:
         - START_MODE=1
         - VERSION=stable
@@ -69,8 +65,6 @@
     mumble-server:
       image: mumblevoip/mumble-server:latest
       container_name: mumble-server
-      labels:
-      - host=${HOST_ID}
       hostname: mumble-server
       restart: on-failure
       ports:
@@ -80,8 +74,6 @@
     minecraft-bedrock-server:
       image: itzg/minecraft-bedrock-server
       container_name: mc
-      labels:
-      - host=${HOST_ID}
       environment:
         - 'EULA=TRUE'
         - 'SERVER_PORT=19132'
@@ -100,8 +92,6 @@
     docker-socket-proxy:
       image: tecnativa/docker-socket-proxy
       container_name: docker-socket-proxy
-      labels:
-      - host=${HOST_ID}
       ports:
         - "2375:2375"
       volumes:
