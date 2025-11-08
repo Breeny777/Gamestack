@@ -81,7 +81,7 @@
         - 'PUID=${PUID}'
         - 'PGID=${PGID}'
         - 'TZ=${TZ}'
-        - 'VERSION=1.21.114'
+        - 'VERSION=1.21.114.1'
         # - LEVEL_SEED= optional seed for generating your world
       ports:
         - "19132:19132/udp"
