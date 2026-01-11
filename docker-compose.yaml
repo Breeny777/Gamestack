@@ -50,10 +50,10 @@
         - '${ROOT}/config/7dtd2:/home/sdtdserver/lgsm/backup/' #Optional, backups
         - '${ROOT}/config/7dtd2:/home/sdtdserver/lgsm/config-lgsm/sdtdserver' # Optional, alerts
       ports:
-        - 26900:26920/tcp
-        - 26900:26920/udp
-        - 26901:26921/udp
-        - 26902:26922/udp
+        - 26900:26900/tcp
+        - 26900:26900/udp
+        - 26901:26901/udp
+        - 26902:26902/udp
         - 8092:8080/tcp
         - 8093:8081/tcp
         - 8094:8082/tcp
