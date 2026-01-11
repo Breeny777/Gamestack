@@ -62,14 +62,14 @@
         driver: "json-file"
         options:
           max-size: "1m"
-    mumble-server:
-      image: mumblevoip/mumble-server:latest
-      container_name: PlayTime-mumble-server
-      hostname: mumble-server
-      restart: on-failure
-      ports:
-        - 64738:64738
-        - 64738:64738/udp
+    # mumble-server:
+    #   image: mumblevoip/mumble-server:latest
+    #   container_name: PlayTime-mumble-server
+    #   hostname: mumble-server
+    #   restart: on-failure
+    #   ports:
+    #     - 64738:64738
+    #     - 64738:64738/udp
 # # Minecraft Servers
     minecraft-bedrock-server:
       image: itzg/minecraft-bedrock-server
