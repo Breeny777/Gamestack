@@ -37,7 +37,7 @@
       container_name: PlayTime-7dtdserver2
       environment:
         - START_MODE=1
-        - VERSION=latest
+        - VERSION=stable
         - PUID=1000 # your uid of your user
         - PGID=1000 # your gid of your user's group
         - 'TZ=${TZ}'
