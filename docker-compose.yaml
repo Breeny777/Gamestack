@@ -1,30 +1,30 @@
   services:
     # ---- 7Days to die servers + Mumble voip server ----
     7dtdserver2:
-      image: didstopia/7dtd-server
-      platform: linux/amd64 # <-- REQUIRED for ARM hosts
-      container_name: 7dtd
-      environment:
-        - STEAMCMD_FORCE_PLATFORM_TYPE=64
-        - START_MODE=1
-        - PUID=1000 # your uid of your user
-        - PGID=1000 # your gid of your user's group
-        - 'TZ=${TZ}'
-        - TEST_ALERT=YES
-        - ALLOC_FIXES=YES #Optional - Install ALLOC FIXES
-      volumes:
-        - ${ROOT}/config/7dtd:/app/.local/share
-        - ${ROOT}/config/steamcmd:/steamcmd/7dtd 
+          image: didstopia/7dtd-server
+          platform: linux/amd64
+          container_name: 7dtd
+          environment:
+            - START_MODE=1
+            - PUID=1000
+            - PGID=1000
+            - TZ=${TZ}
+            - TEST_ALERT=YES
+            - ALLOC_FIXES=YES
+            - STEAMCMD_FORCE_PLATFORM_TYPE=64   # <-- IMPORTANT FIX
+          volumes:
+            - ${ROOT}/config/7dtd:/app/.local/share
+            - ${ROOT}/config/steamcmd:/steamcmd/7dtd
+          ports:
+            - 26900:26900/tcp
+            - 26900:26900/udp
+            - 26901:26901/udp
+            - 26902:26902/udp
+            - 8080:8080/tcp
+            - 8081:8081/tcp
+            - 8082:8082/tcp
+          restart: unless-stopped
 
-      ports:
-        - 26900:26900/tcp
-        - 26900:26900/udp
-        - 26901:26901/udp
-        - 26902:26902/udp
-        - 8080:8080/tcp
-        - 8081:8081/tcp
-        - 8082:8082/tcp
-      restart: unless-stopped #NEVER USE WITH START_MODE=4 or START_MODE=0
 
     # mumble-server:
     #   image: mumblevoip/mumble-server:latest
