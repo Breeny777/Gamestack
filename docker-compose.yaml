@@ -35,21 +35,21 @@
     #     - 64738:64738
     #     - 64738:64738/udp
 # # Minecraft Servers
-    minecraft-bedrock-server:
-      image: itzg/minecraft-bedrock-server
-      container_name: PlayTime-mc
-      environment:
-        - 'EULA=TRUE'
-        - 'SERVER_PORT=19132'
-        - 'DIFFICULTY=peaceful'
-        - 'PUID=${PUID}'
-        - 'PGID=${PGID}'
-        - 'TZ=${TZ}'
-        - 'VERSION=1.21.114.1'
-        # - LEVEL_SEED= optional seed for generating your world
-      ports:
-        - "19132:19132/udp"
-      volumes:
-        - '${ROOT}/config/bedrock:/data'
-      stdin_open: true
-      tty: true
+    # minecraft-bedrock-server:
+    #   image: itzg/minecraft-bedrock-server
+    #   container_name: PlayTime-mc
+    #   environment:
+    #     - 'EULA=TRUE'
+    #     - 'SERVER_PORT=19132'
+    #     - 'DIFFICULTY=peaceful'
+    #     - 'PUID=${PUID}'
+    #     - 'PGID=${PGID}'
+    #     - 'TZ=${TZ}'
+    #     - 'VERSION=1.21.114.1'
+    #     # - LEVEL_SEED= optional seed for generating your world
+    #   ports:
+    #     - "19132:19132/udp"
+    #   volumes:
+    #     - '${ROOT}/config/bedrock:/data'
+    #   stdin_open: true
+    #   tty: true
