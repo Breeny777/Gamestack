@@ -24,8 +24,6 @@
         - 8081:8081/tcp
         - 8082:8082/tcp
       restart: unless-stopped #NEVER USE WITH START_MODE=4 or START_MODE=0
-      healthcheck: # <-- optional but helpful
-       test: ["CMD", "bash", "-c", "pgrep -f 7DaysToDieServer"] interval: 30s timeout: 10s retries: 5
 
     # mumble-server:
     #   image: mumblevoip/mumble-server:latest
