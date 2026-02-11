@@ -1,29 +1,46 @@
   services:
     # ---- 7Days to die servers + Mumble voip server ----
-    7dtdserver2:
-          image: didstopia/7dtd-server
-          platform: linux/amd64
-          container_name: 7dtd
-          environment:
-            - START_MODE=1
-            - PUID=1000
-            - PGID=1000
-            - TZ=${TZ}
-            - TEST_ALERT=YES
-            - ALLOC_FIXES=YES
-            - STEAMCMD_FORCE_PLATFORM_TYPE=64   # <-- IMPORTANT FIX
-          volumes:
-            - ${ROOT}/config/7dtd:/app/.local/share
-            - ${ROOT}/config/steamcmd:/steamcmd/7dtd
-          ports:
-            - 26900:26900/tcp
-            - 26900:26900/udp
-            - 26901:26901/udp
-            - 26902:26902/udp
-            - 8080:8080/tcp
-            - 8081:8081/tcp
-            - 8082:8082/tcp
-          restart: unless-stopped
+    7dtd:
+      image: jammsen/7dtd-server:latest
+      platform: linux/amd64
+      container_name: 7dtd
+      environment:
+        - PUID=1000
+        - PGID=1000
+        - TZ=${TZ}
+      volumes:
+        - ${ROOT}/config/7dtd:/home/steam/7dtd
+      ports:
+        - 26900:26900/udp
+        - 26901:26901/udp
+        - 26902:26902/udp
+        - 8080:8080/tcp
+      restart: unless-stopped
+
+    # 7dtdserver2:
+    #       image: didstopia/7dtd-server
+    #       platform: linux/amd64
+    #       container_name: 7dtd
+    #       environment:
+    #         - START_MODE=1
+    #         - PUID=1000
+    #         - PGID=1000
+    #         - TZ=${TZ}
+    #         - TEST_ALERT=YES
+    #         - ALLOC_FIXES=YES
+    #         - STEAMCMD_FORCE_PLATFORM_TYPE=64   # <-- IMPORTANT FIX
+    #       volumes:
+    #         - ${ROOT}/config/7dtd:/app/.local/share
+    #         - ${ROOT}/config/steamcmd:/steamcmd/7dtd
+    #       ports:
+    #         - 26900:26900/tcp
+    #         - 26900:26900/udp
+    #         - 26901:26901/udp
+    #         - 26902:26902/udp
+    #         - 8080:8080/tcp
+    #         - 8081:8081/tcp
+    #         - 8082:8082/tcp
+    #       restart: unless-stopped
 
 
     # mumble-server:
