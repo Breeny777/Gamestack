@@ -1,21 +1,25 @@
   services:
     # ---- 7Days to die servers + Mumble voip server ----
-    7dtd:
-      image: jammsen/7dtd-server:latest
+     7dtd:
+      image: catalysm/7dtd-server:latest
       platform: linux/amd64
       container_name: 7dtd
       environment:
         - PUID=1000
         - PGID=1000
         - TZ=${TZ}
+        - START_MODE=1
       volumes:
-        - ${ROOT}/config/7dtd:/home/steam/7dtd
+        - ${ROOT}/config/7dtd:/home/steam/.local/share/7DaysToDie
+        - ${ROOT}/config/steamcmd:/steamcmd
       ports:
+        - 26900:26900/tcp
         - 26900:26900/udp
         - 26901:26901/udp
         - 26902:26902/udp
         - 8080:8080/tcp
       restart: unless-stopped
+
 
     # 7dtdserver2:
     #       image: didstopia/7dtd-server
