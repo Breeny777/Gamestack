@@ -5,6 +5,7 @@
       platform: linux/amd64 # <-- REQUIRED for ARM hosts
       container_name: 7dtd
       environment:
+        - STEAMCMD_FORCE_PLATFORM_TYPE=64
         - START_MODE=1
         - PUID=1000 # your uid of your user
         - PGID=1000 # your gid of your user's group
