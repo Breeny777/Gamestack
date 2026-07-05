@@ -36,7 +36,7 @@
       image: vinanrra/7dtd-server
       container_name: PlayTime-7dtdserver2
       environment:
-        - START_MODE=1
+        - START_MODE=3
         - VERSION=stable
         - PUID=1000 # your uid of your user
         - PGID=1000 # your gid of your user's group
