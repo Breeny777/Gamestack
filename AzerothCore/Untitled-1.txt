@@ -1,0 +1,9 @@
+backup_file="/opt/backups/AzerothCore/azerothcore-$(date +%Y%m%d-%H%M%S).sql.gz"
+
+sudo docker compose exec -T ac-database sh -c \
+  'exec mysqldump --user=root --password="dc8f6bb1574633c930fbeaa8ff83d5be22929f62f9c54a808b10bd3b0555915a" \
+  --single-transaction --quick --routines --events --triggers --hex-blob \
+  --databases acore_auth acore_characters acore_world acore_playerbots' \
+  | gzip -9 > "$backup_file"
+
+chmod 600 "$backup_file"
