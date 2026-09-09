@@ -1,2 +1,2 @@
 # Gamestack
-Game servers
+Local WoW server and client config files
