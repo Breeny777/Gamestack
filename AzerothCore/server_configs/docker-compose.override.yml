@@ -1,10 +1,6 @@
 services:
   ac-worldserver:
     environment:
-      AC_START_PLAYER_LEVEL: "1"
-      AC_RATE_XP_KILL: "2"
-      AC_RATE_XP_QUEST: "2"
-      AC_RATE_XP_EXPLORE: "2"
       AC_AI_PLAYERBOT_RANDOM_BOT_AUTOLOGIN: "0"
       AC_AI_PLAYERBOT_MIN_RANDOM_BOTS: "0"
       AC_AI_PLAYERBOT_MAX_RANDOM_BOTS: "0"
@@ -14,7 +10,6 @@ services:
       AC_PLAYERBOTS_UPDATES_ENABLE_DATABASES: "1"
       AC_PLAYERBOTS_DATABASE_WORKER_THREADS: "1"
       AC_PLAYERBOTS_DATABASE_SYNCH_THREADS: "1"
-      AC_MIN_WORLD_UPDATE_TIME: "10"
     volumes:
       - ./modules:/azerothcore/modules:ro
       - /etc/localtime:/etc/localtime:ro
